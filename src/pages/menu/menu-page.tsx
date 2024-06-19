@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchMenuItems, selectMenuItems, selectMenuStatus, selectMenuError } from './menu-slice';
 import { UnknownAction } from '@reduxjs/toolkit';
 import CardMenu from '../../components/card-menu/card-menu';
+import CardMenuPlaceholder from '../../components/card-menu/card-menu-placeholder';
 
 const MenuPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const MenuPage: React.FC = () => {
   }, [menuStatus, dispatch]);
 
   if (menuStatus === 'loading') {
-    return <div>Loading...</div>;
+    return <CardMenuPlaceholder />
   }
 
   if (menuStatus === 'failed') {

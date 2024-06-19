@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getTotalSelectedItemsQuantity, selectCartItems } from '../../pages/cart/cart-slice';
+import { filterMenuItems, selectMenuItems } from '../../pages/menu/menu-slice';
 
 
 const Navbar = () => {
-  const menuItems = useSelector(getTotalSelectedItemsQuantity);
+  const dispatch = useDispatch();
+  const selectedItemsQuantity = useSelector(getTotalSelectedItemsQuantity);
+  const menuItems = useSelector(selectMenuItems)
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedOrigin, setSelectedOrigin] = useState('');
+
+  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCategory(event.target.value);
+    filterItems(event.target.value, selectedOrigin);
+  };
+
+  const handleOriginChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedOrigin(event.target.value);
+    filterItems(selectedCategory, event.target.value);
+  };
+
+  const filterItems = (category: string, origin: string) => {
+    
+    dispatch(filterMenuItems({category: category, origin: origin}))
+  }
 
   return (
     <nav className="navbar navbar-expand-lg bg-light">
@@ -18,8 +38,8 @@ const Navbar = () => {
       <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
         <ul className="navbar-nav" style={{ margin: '0 10px' }}>
           <li className="nav-item dropdown">
-          <select className="form-select" aria-label="Default select example">
-            <option selected>Categorias</option>
+          <select className="form-select" onChange={handleCategoryChange}>
+            <option value="" selected>Categorias</option>
             <option value="Bebida">Bebidas</option>
             <option value="Entrada">Entradas</option>
             <option value="Prato Principal">Pratos Principais</option>
@@ -29,8 +49,8 @@ const Navbar = () => {
         </ul>
         <ul className="navbar-nav" style={{ margin: '0 10px' }}>
           <li className="nav-item dropdown">
-          <select className="form-select" aria-label="Default select example">
-            <option selected>Origens típicas</option>
+          <select className="form-select" onChange={handleOriginChange}>
+            <option value="" selected>Origens típicas</option>
             <option value="Brasileira">Brasileiras</option>
             <option value="Italiana">Italianas</option>
             <option value="Japonesa">Japonesas</option>
@@ -44,9 +64,9 @@ const Navbar = () => {
           <li className="nav-item">
             <button type="button" className="btn btn-primary position-relative">
               <FontAwesomeIcon icon={faShoppingCart} />
-              {menuItems > 0 && (
+              {selectedItemsQuantity > 0 && (
                 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  <span className="badge badge-primary ml-1">{menuItems}</span>
+                  <span className="badge badge-primary ml-1">{selectedItemsQuantity}</span>
                 </span>
               )}
             </button>

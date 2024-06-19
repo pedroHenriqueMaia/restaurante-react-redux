@@ -1,6 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectCartItems, selectCartTotal, addItemToCart, removeItemFromCart, clearCart } from './cart-slice';
+import {
+  selectCartItems,
+  selectCartTotal,
+  addItemToCart,
+  removeItemFromCart,
+  clearCart,
+} from './cart-slice';
 import { IResponseMenu } from '../../models/response/menu';
 
 const CartPage: React.FC = () => {
@@ -24,7 +30,7 @@ const CartPage: React.FC = () => {
     <div>
       <h1>Carrinho de Compras</h1>
       <ul>
-        {cartItems.map(item => (
+        {cartItems.map((item) => (
           <li key={item.id}>
             {item.name} - ${item.price} x {item.quantity}
             <button onClick={() => handleAddItem(item)}>Adicionar Item</button>

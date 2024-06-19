@@ -1,4 +1,4 @@
-import { IResponseMenu } from "../response/menu";
+import { IResponseMenu } from '../response/menu';
 
 export interface IEntradaCardMenu {
   selectedItem: IResponseMenu;

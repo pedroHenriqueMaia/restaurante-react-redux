@@ -3,7 +3,6 @@ import axios from 'axios';
 import { RootState } from '../../store';
 import { IResponseMenu } from '../../models/response/menu';
 
-
 interface MenuState {
   items: IResponseMenu[];
   itemsBKP: IResponseMenu[];
@@ -13,12 +12,16 @@ interface MenuState {
 
 const initialState: MenuState = {
   items: [],
-  itemsBKP:[],
+  itemsBKP: [],
   status: 'idle',
-  error: null
+  error: null,
 };
 
-export const fetchMenuItems = createAsyncThunk<IResponseMenu[], void, { rejectValue: string }>('', async (_, thunkAPI) => {
+export const fetchMenuItems = createAsyncThunk<
+  IResponseMenu[],
+  void,
+  { rejectValue: string }
+>('', async (_, thunkAPI) => {
   try {
     const response = await axios.get('http://localhost:8080');
     return response.data;
@@ -31,26 +34,35 @@ const menuSlice = createSlice({
   name: 'menu',
   initialState,
   reducers: {
-    filterMenuItems: (state, action: PayloadAction<{category: string, origin: string}>) => {
+    filterMenuItems: (
+      state,
+      action: PayloadAction<{ category: string; origin: string }>
+    ) => {
       state.items = state.itemsBKP;
-      const filteredItems = [...state.items].filter(item =>
-        (action.payload.category ? item.category === action.payload.category : true) &&
-        (action.payload.origin ? item.origin === action.payload.origin : true)
-       );
+      const filteredItems = [...state.items].filter(
+        (item) =>
+          (action.payload.category
+            ? item.category === action.payload.category
+            : true) &&
+          (action.payload.origin ? item.origin === action.payload.origin : true)
+      );
 
-       state.items = [...filteredItems];
-    }
+      state.items = [...filteredItems];
+    },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       .addCase(fetchMenuItems.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchMenuItems.fulfilled, (state, action: PayloadAction<IResponseMenu[]>) => {
-        state.status = 'succeeded';
-        state.items = action.payload;
-        state.itemsBKP = action.payload;
-      })
+      .addCase(
+        fetchMenuItems.fulfilled,
+        (state, action: PayloadAction<IResponseMenu[]>) => {
+          state.status = 'succeeded';
+          state.items = action.payload;
+          state.itemsBKP = action.payload;
+        }
+      )
       .addCase(fetchMenuItems.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message || 'Failed to fetch menu items';

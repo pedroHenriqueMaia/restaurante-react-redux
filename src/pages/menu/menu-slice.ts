@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
 import { RootState } from '../../store';
 import { IResponseMenu } from '../../models/response/menu';
+import { getAllItems } from '../../fakeServer/mock-request';
 
 interface MenuState {
   items: IResponseMenu[];
@@ -23,8 +23,8 @@ export const fetchMenuItems = createAsyncThunk<
   { rejectValue: string }
 >('', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('http://localhost:8080');
-    return response.data;
+    const response = (await getAllItems()) as IResponseMenu[];
+    return response;
   } catch (error) {
     return thunkAPI.rejectWithValue('Failed to fetch menu items');
   }

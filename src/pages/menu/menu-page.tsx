@@ -36,12 +36,17 @@ const MenuPage: React.FC = () => {
 
   return (
     <div className="container menu-page">
-      {/* <h1>Menu</h1> */}
-      <ul className="row">
-        {menuItems.map((item) => (
-          <CardMenu key={item.id} selectedItem={item} />
-        ))}
-      </ul>
+      {menuItems.length === 0 ? (
+        <div className="mt-5">
+          <Alert message="Nenhum há dados com esse filtro." />
+        </div>
+      ) : (
+        <ul className="row">
+          {menuItems.map((item) => (
+            <CardMenu key={item.id} selectedItem={item} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

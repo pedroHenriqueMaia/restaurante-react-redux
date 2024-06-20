@@ -58,3 +58,12 @@ span {
 .badge {
   background-color: #941f1f;
 }
+
+.alert {
+  background-color: #941f1f;
+  color: #ffefb9;
+}
+
+.h3 {
+  color: #34502b;
+}

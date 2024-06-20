@@ -4,6 +4,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTotalSelectedItemsQuantity } from '../../pages/cart/cart-slice';
 import { filterMenuItems } from '../../pages/menu/menu-slice';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -86,14 +87,14 @@ const Navbar = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <button type="button" className="btn position-relative">
+              <Link to="/cart" className="btn position-relative">
                 <FontAwesomeIcon icon={faShoppingCart} />
                 {selectedItemsQuantity > 0 && (
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
                     <span className="badge ml-1">{selectedItemsQuantity}</span>
                   </span>
                 )}
-              </button>
+              </Link>
             </li>
           </ul>
         </div>

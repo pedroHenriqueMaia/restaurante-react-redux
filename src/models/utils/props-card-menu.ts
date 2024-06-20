@@ -1,5 +1,5 @@
 import { IResponseMenu } from '../response/menu';
 
-export interface IEntradaCardMenu {
+export interface IPropsCardMenu {
   selectedItem: IResponseMenu;
 }

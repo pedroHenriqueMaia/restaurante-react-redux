@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToCart, removeItemFromCart } from '../../pages/cart/cart-slice';
 import { IResponseMenu } from '../../models/response/menu';
-import { IEntradaCardMenu } from '../../models/utils/entrada-card-menu';
+import { IPropsCardMenu } from '../../models/utils/props-card-menu';
 import { RootState } from '../../store';
 
-const CardMenu: React.FC<IEntradaCardMenu> = ({ selectedItem }) => {
+const CardMenu: React.FC<IPropsCardMenu> = ({ selectedItem }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const cartItem = cartItems.find(

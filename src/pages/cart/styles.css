@@ -1,0 +1,29 @@
+.table-custom thead tr th {
+  background-color: #34502b;
+  color: #ffefb9;
+}
+
+.table-custom tbody tr td {
+  background-color: #90aa88;
+  color: #ffefb9;
+}
+
+.buy {
+  color: #ffefb9;
+  background-color: #90aa88;
+}
+
+.buy:hover {
+  color: #ffefb9;
+  background-color: #34502b;
+}
+
+.clear {
+  color: #ffefb9;
+  background-color: #ce6b5d;
+}
+
+.clear:hover {
+  color: #ffefb9;
+  background-color: #941f1f;
+}

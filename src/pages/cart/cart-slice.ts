@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 import { IResponseMenu } from '../../models/response/menu';
+import './styles.css';
 
 interface CartState {
   items: IResponseMenu[];
@@ -63,6 +64,7 @@ const cartSlice = createSlice({
     },
     clearCart: (state) => {
       state.items = [];
+      state.selectedTotal = 0;
     },
   },
 });

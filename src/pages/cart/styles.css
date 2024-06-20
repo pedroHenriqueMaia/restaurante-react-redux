@@ -27,3 +27,7 @@
   color: #ffefb9;
   background-color: #941f1f;
 }
+
+.cart-page {
+  min-height: 80vh;
+}

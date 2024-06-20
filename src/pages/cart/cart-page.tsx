@@ -28,7 +28,7 @@ const CartPage: React.FC = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container cart-page mt-5">
       {cartItems.length === 0 ? (
         <div>
           <div className="alert alert-info text-center">

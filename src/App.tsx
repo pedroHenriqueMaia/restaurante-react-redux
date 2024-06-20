@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import Navbar from './components/navbar/navbar';
 import './App.css';
+import Footer from './components/footer/footer';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
             <Route path="/" element={<MenuPage />} />
             <Route path="/cart" element={<CartPage />} />
           </Routes>
+          <Footer />
         </div>
       </Router>
     </Provider>

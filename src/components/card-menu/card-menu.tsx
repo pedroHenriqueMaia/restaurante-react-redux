@@ -25,21 +25,21 @@ const CardMenu: React.FC<IPropsCardMenu> = ({ selectedItem }) => {
   };
 
   return (
-    <div className="col-4 mb-3 mt-3">
-      <div className="card" style={{ width: '25rem', height: '18rem' }}>
+    <div className="col-12 col-sm-6 col-md-4 mb-3 mt-3">
+      <div className="card h-100">
         <div className="card-body">
           <h5 className="card-title">
             {selectedItem.name} ({selectedItem.category})
           </h5>
           <p className="card-text">{selectedItem.description}</p>
           <div className="row mt-5">
-            <p className="col-5">{selectedItem.origin}</p>
-            <p className="col-5">
+            <p className="col-6">{selectedItem.origin}</p>
+            <h5 className="col-6">
               $
               {selectedItem.price.toLocaleString('pt-BR', {
                 minimumFractionDigits: 2,
               })}
-            </p>
+            </h5>
           </div>
         </div>
         <div className="card-footer">

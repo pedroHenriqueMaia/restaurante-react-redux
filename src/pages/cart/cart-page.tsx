@@ -9,6 +9,7 @@ import {
 } from './cart-slice';
 import { IResponseMenu } from '../../models/response/menu';
 import { Link } from 'react-router-dom'; // Certifique-se de que react-router-dom está instalado
+import Alert from '../../components/alert/alert';
 
 const CartPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -31,9 +32,7 @@ const CartPage: React.FC = () => {
     <div className="container cart-page mt-5">
       {cartItems.length === 0 ? (
         <div>
-          <div className="alert alert-info text-center">
-            Seu carrinho está vazio.
-          </div>
+          <Alert message="Seu carrinho está vazio." />
           <div className="text-center mt-3">
             <Link to="/" className="btn btn-link">
               &larr; Voltar ao Cardápio
@@ -43,14 +42,14 @@ const CartPage: React.FC = () => {
       ) : (
         <>
           <div className="table-responsive">
-            <table className="table table-borderless table-custom">
-              <thead>
+            <table className="table table-bordered">
+              <thead className="table-dark">
                 <tr>
-                  <th>Produto</th>
-                  <th>Preço</th>
-                  <th>Quantidade</th>
-                  <th>Subtotal</th>
-                  <th>Ações</th>
+                  <th scope="col">Produto</th>
+                  <th scope="col">Preço</th>
+                  <th scope="col">Quantidade</th>
+                  <th scope="col">Subtotal</th>
+                  <th scope="col">Ações</th>
                 </tr>
               </thead>
               <tbody>
@@ -61,18 +60,20 @@ const CartPage: React.FC = () => {
                     <td>{item.quantity}</td>
                     <td>${(item.price * (item.quantity || 0)).toFixed(2)}</td>
                     <td>
-                      <button
-                        className="btn btn-sm btn-primary me-2"
-                        onClick={() => handleAddItem(item)}
-                      >
-                        +
-                      </button>
-                      <button
-                        className="btn btn-sm btn-danger"
-                        onClick={() => handleRemoveItem(item.id)}
-                      >
-                        -
-                      </button>
+                      <div className="d-flex align-items-center">
+                        <button
+                          className="btn me-2"
+                          onClick={() => handleAddItem(item)}
+                        >
+                          +
+                        </button>
+                        <button
+                          className="btn"
+                          onClick={() => handleRemoveItem(item.id)}
+                        >
+                          -
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -80,12 +81,12 @@ const CartPage: React.FC = () => {
             </table>
           </div>
           <div className="d-flex justify-content-between align-items-center mt-4">
-            <h3 className="h3">Total: ${cartTotal.toFixed(2)}</h3>
-            <div>
-              <button className="btn clear me-2" onClick={handleClearCart}>
+            <h3>Total: ${cartTotal.toFixed(2)}</h3>
+            <div className="d-flex">
+              <button className="btn me-2" onClick={handleClearCart}>
                 Limpar Carrinho
               </button>
-              <button className="btn buy ">Finalizar Compra</button>
+              <button className="btn">Finalizar Compra</button>
             </div>
           </div>
         </>

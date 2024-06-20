@@ -17,11 +17,13 @@ const Navbar = () => {
   ) => {
     setSelectedCategory(event.target.value);
     filterItems(event.target.value, selectedOrigin);
+    document.getElementById('navbarNavFilters')?.classList.remove('show');
   };
 
   const handleOriginChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOrigin(event.target.value);
     filterItems(selectedCategory, event.target.value);
+    document.getElementById('navbarNavFilters')?.classList.remove('show');
   };
 
   const filterItems = (category: string, origin: string) => {
@@ -30,21 +32,18 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-lg">
-      <div className="container">
-        <div className="logo">
-          <span>Restaurante</span>
-          <br />
-          <span>do</span>
-          <br />
-          <span>Pedrinho</span>
-          <br />
-        </div>
+      <div className="container-fluid">
+        <h5 className="logo text-center">
+          <div>Restaurante</div>
+          <div>do</div>
+          <div>Pedrinho</div>
+        </h5>
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
+          data-bs-target="#navbarNavFilters"
+          aria-controls="navbarNavFilters"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
@@ -52,9 +51,9 @@ const Navbar = () => {
         </button>
         <div
           className="collapse navbar-collapse justify-content-center"
-          id="navbarNav"
+          id="navbarNavFilters"
         >
-          <ul className="navbar-nav" style={{ margin: '0 10px' }}>
+          <ul id="categorias-select" className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item dropdown">
               <select className="form-select" onChange={handleCategoryChange}>
                 <option value="" selected>
@@ -67,7 +66,7 @@ const Navbar = () => {
               </select>
             </li>
           </ul>
-          <ul className="navbar-nav" style={{ margin: '0 10px' }}>
+          <ul className="navbar-nav mb-2 mb-lg-0">
             <li className="nav-item dropdown">
               <select className="form-select" onChange={handleOriginChange}>
                 <option value="" selected>
@@ -80,23 +79,23 @@ const Navbar = () => {
               </select>
             </li>
           </ul>
-        </div>
-        <div
-          className="collapse navbar-collapse justify-content-end"
-          id="navbarNav"
-        >
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link to="/cart" className="btn position-relative">
-                <FontAwesomeIcon icon={faShoppingCart} />
-                {selectedItemsQuantity > 0 && (
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
-                    <span className="badge ml-1">{selectedItemsQuantity}</span>
-                  </span>
-                )}
-              </Link>
-            </li>
-          </ul>
+          <div
+            className="collapse navbar-collapse justify-content-end"
+            id="navbarNavFilters"
+          >
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link to="/cart" className="btn position-relative">
+                  <FontAwesomeIcon icon={faShoppingCart} />
+                  {selectedItemsQuantity > 0 && (
+                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                      <span className="badge">{selectedItemsQuantity}</span>
+                    </span>
+                  )}
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>

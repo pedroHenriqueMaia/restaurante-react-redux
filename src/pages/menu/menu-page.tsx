@@ -4,17 +4,17 @@ import {
   fetchMenuItems,
   selectMenuItems,
   selectMenuStatus,
-  selectMenuError,
 } from './menu-slice';
 import { UnknownAction } from '@reduxjs/toolkit';
 import CardMenu from '../../components/card-menu/card-menu';
 import CardMenuPlaceholder from '../../components/card-menu/card-menu-placeholder';
+import './styles.css';
+import Alert from '../../components/alert/alert';
 
 const MenuPage: React.FC = () => {
   const dispatch = useDispatch();
   const menuItems = useSelector(selectMenuItems);
   const menuStatus = useSelector(selectMenuStatus);
-  const menuError = useSelector(selectMenuError);
 
   useEffect(() => {
     if (menuStatus === 'idle') {
@@ -27,11 +27,15 @@ const MenuPage: React.FC = () => {
   }
 
   if (menuStatus === 'failed') {
-    return <div>{menuError}</div>;
+    return (
+      <div className="container mt-5 menu-page">
+        <Alert message="Não há dados disponíveis no momento. Tente novamente mais tarde." />
+      </div>
+    );
   }
 
   return (
-    <div className="container">
+    <div className="container menu-page">
       {/* <h1>Menu</h1> */}
       <ul className="row">
         {menuItems.map((item) => (

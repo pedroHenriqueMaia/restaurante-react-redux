@@ -9,23 +9,23 @@
 }
 
 .buy {
-  color: #ffefb9;
-  background-color: #90aa88;
+  color: #ffefb9 !important;
+  background-color: #90aa88 !important;
 }
 
 .buy:hover {
-  color: #ffefb9;
-  background-color: #34502b;
+  color: #ffefb9 !important;
+  background-color: #34502b !important;
 }
 
 .clear {
-  color: #ffefb9;
-  background-color: #ce6b5d;
+  color: #ffefb9 !important;
+  background-color: #ce6b5d !important;
 }
 
 .clear:hover {
-  color: #ffefb9;
-  background-color: #941f1f;
+  color: #ffefb9 !important;
+  background-color: #941f1f !important;
 }
 
 .cart-page {

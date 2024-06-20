@@ -8,8 +8,9 @@ import {
   clearCart,
 } from './cart-slice';
 import { IResponseMenu } from '../../models/response/menu';
-import { Link } from 'react-router-dom'; // Certifique-se de que react-router-dom está instalado
+import { Link } from 'react-router-dom';
 import Alert from '../../components/alert/alert';
+import './styles.css';
 
 const CartPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -42,8 +43,8 @@ const CartPage: React.FC = () => {
       ) : (
         <>
           <div className="table-responsive">
-            <table className="table table-bordered">
-              <thead className="table-dark">
+            <table className="table table-custom table-lessborder">
+              <thead>
                 <tr>
                   <th scope="col">Produto</th>
                   <th scope="col">Preço</th>
@@ -81,12 +82,12 @@ const CartPage: React.FC = () => {
             </table>
           </div>
           <div className="d-flex justify-content-between align-items-center mt-4">
-            <h3>Total: ${cartTotal.toFixed(2)}</h3>
+            <h3 className="h3">Total: ${cartTotal.toFixed(2)}</h3>
             <div className="d-flex">
-              <button className="btn me-2" onClick={handleClearCart}>
+              <button className="btn clear me-2" onClick={handleClearCart}>
                 Limpar Carrinho
               </button>
-              <button className="btn">Finalizar Compra</button>
+              <button className="btn buy">Finalizar Compra</button>
             </div>
           </div>
         </>

@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+PL:wght@100..400&display=swap');
+
 body {
   background-color: #ffefb9;
 }
 
 .card {
   color: 34502b;
-  background-color: #7b9971;
+  background-color: #90aa88;
 }
 
 .card-footer {
@@ -13,20 +15,20 @@ body {
 
 nav {
   color: #34502b;
-  background-color: #7b9971;
+  background-color: #90aa88;
 }
 
 .btn,
 btn {
-  border: #941f1f;
-  background-color: #941f1f;
-  color: #ffefb9;
+  border: #ffefb9;
+  background-color: #ffefb9;
+  color: #34502b;
 }
 
 .btn:hover {
-  border: #ce6b5d;
-  background: #ce6b5d;
-  color: #ffefb9;
+  border: #ddcf9e;
+  background: #ddcf9e;
+  color: #34502b;
 }
 
 .btn:active {
@@ -41,4 +43,18 @@ btn {
 
 span {
   color: #ffefb9;
+}
+
+.logo {
+  color: #941f1f;
+  font-family: 'Playwrite PL', cursive;
+  font-optical-sizing: auto;
+  font-weight: bolder;
+  font-style: normal;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge {
+  background-color: #941f1f;
 }

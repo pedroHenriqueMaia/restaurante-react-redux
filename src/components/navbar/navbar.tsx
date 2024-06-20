@@ -30,9 +30,14 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container">
-        <a className="navbar-brand" href="#">
-          Navbar
-        </a>
+        <div className="logo">
+          <span>Restaurante</span>
+          <br />
+          <span>do</span>
+          <br />
+          <span>Pedrinho</span>
+          <br />
+        </div>
         <button
           className="navbar-toggler"
           type="button"
@@ -84,10 +89,8 @@ const Navbar = () => {
               <button type="button" className="btn position-relative">
                 <FontAwesomeIcon icon={faShoppingCart} />
                 {selectedItemsQuantity > 0 && (
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    <span className="badge badge-primary ml-1">
-                      {selectedItemsQuantity}
-                    </span>
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                    <span className="badge ml-1">{selectedItemsQuantity}</span>
                   </span>
                 )}
               </button>

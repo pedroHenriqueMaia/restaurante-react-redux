@@ -6,6 +6,7 @@ import CartPage from './pages/cart/cart-page';
 import { Provider } from 'react-redux';
 import store from './store';
 import Navbar from './components/navbar/navbar';
+import './App.css';
 
 const App: React.FC = () => {
   return (

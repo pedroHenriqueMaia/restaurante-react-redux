@@ -31,7 +31,7 @@ const CardMenuPlaceholder = () => {
               </div>
               <div className="card-footer">
                 <a
-                  className="btn btn-primary disabled placeholder col-6"
+                  className="btn disabled placeholder col-6"
                   aria-disabled="true"
                 ></a>
               </div>

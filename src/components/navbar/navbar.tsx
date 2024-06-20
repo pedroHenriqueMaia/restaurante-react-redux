@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getTotalSelectedItemsQuantity
-} from '../../pages/cart/cart-slice';
+import { getTotalSelectedItemsQuantity } from '../../pages/cart/cart-slice';
 import { filterMenuItems } from '../../pages/menu/menu-slice';
 
 const Navbar = () => {
@@ -30,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className="navbar navbar-expand-lg">
       <div className="container">
         <a className="navbar-brand" href="#">
           Navbar
@@ -83,10 +81,7 @@ const Navbar = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <button
-                type="button"
-                className="btn btn-primary position-relative"
-              >
+              <button type="button" className="btn position-relative">
                 <FontAwesomeIcon icon={faShoppingCart} />
                 {selectedItemsQuantity > 0 && (
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">

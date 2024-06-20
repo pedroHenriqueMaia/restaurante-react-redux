@@ -1,0 +1,44 @@
+body {
+  background-color: #ffefb9;
+}
+
+.card {
+  color: 34502b;
+  background-color: #7b9971;
+}
+
+.card-footer {
+  background-color: #34502b;
+}
+
+nav {
+  color: #34502b;
+  background-color: #7b9971;
+}
+
+.btn,
+btn {
+  border: #941f1f;
+  background-color: #941f1f;
+  color: #ffefb9;
+}
+
+.btn:hover {
+  border: #ce6b5d;
+  background: #ce6b5d;
+  color: #ffefb9;
+}
+
+.btn:active {
+  background-color: #ce6b5d;
+  color: #ffefb9;
+}
+
+.form-select {
+  background-color: #ffefb9;
+  color: #34502b;
+}
+
+span {
+  color: #ffefb9;
+}

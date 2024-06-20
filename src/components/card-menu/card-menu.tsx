@@ -44,20 +44,20 @@ const CardMenu: React.FC<IEntradaCardMenu> = ({ selectedItem }) => {
         </div>
         <div className="card-footer">
           {quantity === 0 ? (
-            <button className="btn btn-primary" onClick={handleAddToCart}>
+            <button className="btn" onClick={handleAddToCart}>
               Adicionar ao Carrinho
             </button>
           ) : (
             <div className="d-flex justify-content-center align-items-center">
               <button
-                className="btn btn-outline-primary me-2"
+                className="btn btn-outline me-2"
                 onClick={handleRemoveFromCart}
               >
                 -
               </button>
               <span>{quantity}</span>
               <button
-                className="btn btn-outline-primary ms-2"
+                className="btn btn-outline ms-2"
                 onClick={handleAddToCart}
               >
                 +

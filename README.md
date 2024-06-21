@@ -69,7 +69,7 @@ Compila o projeto para produção na pasta `build`.
 
 ### Pré-hooks do Git
 
-Este projeto possui um hook pré-commit configurado para executar o ESLint automaticamente antes de cada commit, garantindo que o código esteja formatado corretamente e não contenha problemas de lint. Você pode ver o script do hook pré-commit [aqui](.git/hooks/pre-commit).
+Este projeto possui um hook pré-commit configurado para executar o ESLint automaticamente antes de cada commit, garantindo que o código esteja formatado corretamente e não contenha problemas de lint. Você pode ver o script do hook pré-commit [aqui](./assets/pre-commit.sh).
 
 ## Tecnologias Utilizadas
 

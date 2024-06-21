@@ -38,7 +38,7 @@ const MenuPage: React.FC = () => {
     <div className="container menu-page">
       {menuItems.length === 0 ? (
         <div className="mt-5">
-          <Alert message="Nenhum há dados com esse filtro." />
+          <Alert message="Não há dados com esse filtro." />
         </div>
       ) : (
         <ul className="row">

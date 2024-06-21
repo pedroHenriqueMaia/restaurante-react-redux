@@ -88,7 +88,10 @@ const Navbar = () => {
                 <Link to="/cart" className="btn position-relative">
                   <FontAwesomeIcon icon={faShoppingCart} />
                   {selectedItemsQuantity > 0 && (
-                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+                    <span
+                      data-testid="cart-item-count"
+                      className="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+                    >
                       <span className="badge">{selectedItemsQuantity}</span>
                     </span>
                   )}

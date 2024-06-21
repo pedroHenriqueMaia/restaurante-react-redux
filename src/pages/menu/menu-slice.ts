@@ -2,13 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 import { IResponseMenu } from '../../models/response/menu';
 import { getAllItems } from '../../fakeServer/mock-request';
-
-interface MenuState {
-  items: IResponseMenu[];
-  itemsBKP: IResponseMenu[];
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
-}
+import { MenuState } from '../../models/slices/menu-state';
 
 const initialState: MenuState = {
   items: [],
